@@ -1,12 +1,10 @@
 package org.lessons.java.oop;
 
-// # Crea un nuovo progetto per poter creare tutte le automobili che vorrai
 public class Automobile {
-    // % Variabili di istanza, campi, attributi, proprieta'
-    public String colore;
-    public String marca;
-    public int anno;
-    public int cavalli;
+    private String colore;
+    private String marca;
+    private int anno;
+    private int cavalli;
 
     public Automobile(String colore, String marca, int anno){
         this.colore = colore;
@@ -22,13 +20,14 @@ public class Automobile {
         this.cavalli = cavalli;
     }
 
-    // @ metodi
     public String accendi(){
         return "Mi sono accesa! Sono un'auto di marca " + marca + " e di colore " + colore + " immatricolata nell'anno " + anno + " e ho un motore da " + cavalli + " cavalli";
     }
 
     public void setColore(String colore){
-        this.colore = colore;
+        if (colore.trim().length() > 2){
+            this.colore = colore;
+        }
     }
 
     public String getColore(){
@@ -45,7 +44,9 @@ public class Automobile {
     }
 
     public void setAnno(int anno){
-        this.anno = anno;
+        if( anno >= 1769){
+            this.anno = anno;
+        }
     }
     
     public int getAnno(){
@@ -62,9 +63,5 @@ public class Automobile {
 
     public int getEta(){
         return 2025 - anno;
-    }
-
-    public void cambiaColore(String nuovoColore){
-        colore = nuovoColore;
     }
 }
